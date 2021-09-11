@@ -11,7 +11,6 @@ public class Order {
         cart = new ArrayList<>();
     }
 
-
     public void addItem(LineItem itemToAdd) {
         cart.add(itemToAdd);
         totalSalesTax += itemToAdd.getSalesTax();
@@ -47,8 +46,5 @@ public class Order {
         cart.addItem(item2);
         cart.addItem(item3);
         cart.printReceipt();
-
     }
-
-
 }

@@ -10,10 +10,9 @@ public class Main {
         String input;
 
         printMenu();
-        do {
+        while (true) {
             System.out.printf("Please enter items or menu command:%n\t -- ");
             input = scanner.nextLine();
-
 
             if (input.equals("exit") || input.equals("quit")) {
                 break;
@@ -56,13 +55,13 @@ public class Main {
                 order.addItem(item);
                 System.out.printf("** %d %s is added to cart, current subtotal is %.2f **%n%n"
                         , quantity, itemName, order.getSubTotal());
-                
+
             } catch (IllegalStateException e) {
                 System.out.println("Invalid input format, format must be 'qty' 'item name' at 'price'");
             }
 
 
-        } while (true);
+        }
 
         System.out.println("Thank you for shopping at Julius Store, have a nice day!");
         System.exit(0);

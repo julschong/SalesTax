@@ -4,6 +4,11 @@ public class LineItem {
     private final double unitPrice;
     private int salesTaxRateInPercent = 10; // Sales Tax of 10% = 10
 
+    /**
+     * @param quantity
+     * @param itemName
+     * @param unitPrice
+     */
     public LineItem(int quantity, String itemName, double unitPrice) {
         this.quantity = quantity;
         this.itemName = itemName;
