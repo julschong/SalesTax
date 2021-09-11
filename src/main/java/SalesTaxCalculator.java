@@ -97,7 +97,7 @@ public class SalesTaxCalculator {
     }
 
     private void pauseBeforeRestart() {
-        System.out.println("\nPress any key to continue.\n");
+        System.out.println("\nPress Enter key to continue.\n");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
