@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private List<LineItem> cart;
+    private final List<LineItem> cart;
     private double totalSalesTax = 0;
     private double total = 0;
     private double subTotal = 0;
@@ -19,17 +19,26 @@ public class Order {
     }
 
     public void viewCurrentOrder() {
+        if (cart.size() == 0) {
+            System.out.println("There is no item in the cart!");
+        }
+
         System.out.println("Current Order:");
         cart.forEach(item -> System.out.println("\t" + item.toString()));
     }
 
-    public void printReceipt() {
+    public boolean printReceipt() {
+
+        if (cart.size() == 0) {
+            System.out.println("There is no item in the cart!");
+            return false;
+        }
+
         System.out.println();
-        cart.forEach(item -> {
-            System.out.println(item.toString());
-        });
+        cart.forEach(item -> System.out.println(item.toString()));
         System.out.printf("Sales Taxes: %.2f%n", totalSalesTax);
         System.out.printf("Total: %.2f%n", total);
+        return true;
     }
 
     public double getSubTotal() {
