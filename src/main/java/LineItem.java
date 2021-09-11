@@ -8,23 +8,32 @@ public class LineItem {
         this.quantity = quantity;
         this.itemName = itemName;
         this.unitPrice = unitPrice;
+
         if (itemName.contains("imported")) {
-            this.salesTaxRateInPercent = 5;
-        } else {
-            if (itemName.matches(".*(book|chocolate|pills).*")) {
-                System.out.println("matched");
-                this.salesTaxRateInPercent = 0;
-            }
+            this.salesTaxRateInPercent += 5;
         }
+
+        if (itemName.matches(".*(book|chocolate|pills).*")) {
+            this.salesTaxRateInPercent -= 10;
+        }
+
     }
 
     @Override
     public String toString() {
-        return quantity + " " + itemName + ": " + quantity * unitPrice;
+        return String.format("%d %s: %.2f", quantity, itemName, (quantity * unitPrice + getSalesTax()));
     }
 
     public double getSalesTax() {
-        return Math.round(quantity * unitPrice * salesTaxRateInPercent / 100 * 20) / 20d;
+        return Math.ceil(quantity * unitPrice * salesTaxRateInPercent / 100 * 20) / 20d;
+    }
+
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 
     public static void main(String[] args) {
