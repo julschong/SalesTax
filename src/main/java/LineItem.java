@@ -1,14 +1,13 @@
+import utils.TaxExemption;
+
+import java.io.IOException;
+
 public class LineItem {
     private final int quantity;
     private final String itemName;
     private final double unitPrice;
     private int salesTaxRateInPercent = 10; // Sales Tax of 10% = 10
 
-    /**
-     * @param quantity
-     * @param itemName
-     * @param unitPrice
-     */
     public LineItem(int quantity, String itemName, double unitPrice) {
         this.quantity = quantity;
         this.itemName = itemName;
@@ -18,7 +17,17 @@ public class LineItem {
             this.salesTaxRateInPercent += 5;
         }
 
-        if (itemName.matches(".*(book|chocolate|pills).*")) {
+        String regex = "";
+
+        try {
+            TaxExemption taxExemption = TaxExemption.getInstance();
+            regex = taxExemption.getTaxExemptionRegex();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        if (itemName.matches(".*(" + regex + ").*")) {
             this.salesTaxRateInPercent -= 10;
         }
 
@@ -39,6 +48,10 @@ public class LineItem {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public String getItemName() {
+        return itemName;
     }
 
     public static void main(String[] args) {
