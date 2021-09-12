@@ -38,6 +38,10 @@ public class LineItem {
         return String.format("%d %s: %.2f", quantity, itemName, (quantity * unitPrice + getSalesTax()));
     }
 
+    public String currentViewtoString() {
+        return String.format("%d %s: %.2f", quantity, itemName, (quantity * unitPrice));
+    }
+
     public double getSalesTax() {
         return Math.ceil(quantity * unitPrice * salesTaxRateInPercent / 100 * 20) / 20d;
     }

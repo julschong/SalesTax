@@ -2,6 +2,7 @@ import utils.InputParser;
 
 import java.util.Scanner;
 
+
 public class SalesTaxCalculator {
 
     public static final String INPUT_EXIT = "exit";
@@ -20,6 +21,7 @@ public class SalesTaxCalculator {
         currentOrder = new Order();
     }
 
+
     public void start() {
         printMenu();
         while (!appState.equals(APP_STATE.EXIT)) {
@@ -36,7 +38,7 @@ public class SalesTaxCalculator {
     private String getUserInput() {
         System.out.printf("Please enter items or menu command:%n\t -- ");
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        return scanner.nextLine().toLowerCase();
     }
 
     private void inputActions(String input) {

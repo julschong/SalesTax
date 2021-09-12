@@ -32,11 +32,11 @@ public class OrderTest {
         assertEquals("There is no item in the cart!", outputStreamCaptor.toString().trim());
 
         outputStreamCaptor.reset();
-        LineItem item = new LineItem(1, "book", 12);
+        LineItem item = new LineItem(1, "cart", 12);
         order.addItem(item);
         order.viewCurrentOrder();
 
-        String expected = "Current Order:\n\t1 book: 12.00"
+        String expected = "Current Order:\n\t1 cart: 12.00"
                 .replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
         assertEquals(expected, outputStreamCaptor.toString().trim());
     }

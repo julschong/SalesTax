@@ -25,7 +25,7 @@ public class Order {
         }
 
         System.out.println("Current Order:");
-        cart.forEach(item -> System.out.println("\t" + item.toString()));
+        cart.forEach(item -> System.out.println("\t" + item.currentViewtoString()));
     }
 
     public boolean printReceipt() {
