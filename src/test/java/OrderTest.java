@@ -1,6 +1,4 @@
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -16,10 +14,6 @@ public class OrderTest {
 
     private Order order;
 
-    @AfterAll
-    public static void tearDown() throws Exception {
-    }
-
     @BeforeEach
     public void setUp() {
         order = new Order();
@@ -33,17 +27,32 @@ public class OrderTest {
     }
 
     @Test
-    @DisplayName("viewCurrentOrder Test")
     public void viewCurrentOrder() {
-        System.out.println("hello");
-        assertEquals("hello", outputStreamCaptor.toString().trim());
+        order.viewCurrentOrder();
+        assertEquals("There is no item in the cart!", outputStreamCaptor.toString().trim());
+
+        outputStreamCaptor.reset();
+        LineItem item = new LineItem(1, "book", 12);
+        order.addItem(item);
+        order.viewCurrentOrder();
+
+        String expected = "Current Order:\n\t1 book: 12.00"
+                .replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
+        assertEquals(expected, outputStreamCaptor.toString().trim());
     }
 
     @Test
     public void printReceipt() {
-    }
+        order.printReceipt();
+        assertEquals("There is no item in the cart!", outputStreamCaptor.toString().trim());
 
-    @Test
-    public void getSubTotal() {
+        outputStreamCaptor.reset();
+        LineItem item = new LineItem(1, "book", 12);
+        order.addItem(item);
+        order.printReceipt();
+
+        String expected = "1 book: 12.00\r\nSales Taxes: 0.00\r\nTotal: 12.00"
+                .replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
+        assertEquals(expected, outputStreamCaptor.toString().trim());
     }
 }

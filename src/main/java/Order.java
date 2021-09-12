@@ -21,6 +21,7 @@ public class Order {
     public void viewCurrentOrder() {
         if (cart.size() == 0) {
             System.out.println("There is no item in the cart!");
+            return;
         }
 
         System.out.println("Current Order:");
@@ -28,7 +29,6 @@ public class Order {
     }
 
     public boolean printReceipt() {
-
         if (cart.size() == 0) {
             System.out.println("There is no item in the cart!");
             return false;
@@ -45,7 +45,8 @@ public class Order {
         return subTotal;
     }
 
-    public static void main(String[] args) {
+
+    private static void main(String[] args) {
         Order cart = new Order();
         LineItem item1 = new LineItem(1, "book", 12.49);
         LineItem item2 = new LineItem(1, "music CD", 14.99);
