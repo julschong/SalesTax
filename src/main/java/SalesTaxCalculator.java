@@ -38,11 +38,11 @@ public class SalesTaxCalculator {
     private String getUserInput() {
         System.out.printf("Please enter items or menu command:%n\t -- ");
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine().toLowerCase();
+        return scanner.nextLine();
     }
 
     private void inputActions(String input) {
-        switch (input) {
+        switch (input.toLowerCase()) {
             case INPUT_EXIT:
             case INPUT_QUIT:
                 appState = APP_STATE.EXIT;
@@ -87,7 +87,7 @@ public class SalesTaxCalculator {
                     , item.getQuantity(), item.getItemName(), currentOrder.getSubTotal());
 
         } catch (IllegalStateException e) {
-            System.out.println("Invalid input format, format must be 'qty' 'item name' at 'price'");
+            System.out.println("Invalid input format\nFormat must be: {Quantity} {Item Name} at {Unit Price}");
         }
     }
 
