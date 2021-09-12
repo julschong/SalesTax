@@ -13,18 +13,11 @@ public class SalesTaxCalculator {
 
     enum APP_STATE {STARTED, ENTER_AGAIN, EXIT}
 
-
-    private static SalesTaxCalculator salesTaxCalculator = null;
-
-    private Order currentOrder = new Order();
+    private Order currentOrder;
     private APP_STATE appState = APP_STATE.STARTED;
 
-
-    public static SalesTaxCalculator getInstance() {
-        if (salesTaxCalculator == null) {
-            salesTaxCalculator = new SalesTaxCalculator();
-        }
-        return salesTaxCalculator;
+    public SalesTaxCalculator() {
+        currentOrder = new Order();
     }
 
     public void start() {
