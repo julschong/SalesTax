@@ -38,7 +38,7 @@ public class LineItem {
         return String.format("%d %s: %.2f", quantity, itemName, (quantity * unitPrice + getSalesTax()));
     }
 
-    public String currentViewtoString() {
+    public String currentViewToString() {
         return String.format("%d %s: %.2f", quantity, itemName, (quantity * unitPrice));
     }
 
