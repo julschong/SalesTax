@@ -5,6 +5,7 @@ SalesTaxCalculator is a CLI tool that lets users input item, quantity, and price
 ## Installation
 
 Please clone this repo from this link: [SalesTax](https://github.com/julschong/SalesTaxCalculator.git)
+
 The project's dependencies are managed by Maven using pom.xml in root directory.
 
 To run the program in development in IDE, Open the root directory using IDE and locate ./src/main/java/Main.java and run the main method.
