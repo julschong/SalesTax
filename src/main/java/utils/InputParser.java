@@ -20,7 +20,7 @@ public class InputParser {
     }
 
     public static double parsePrice(String input) {
-        Pattern pricePat = Pattern.compile("\\d+[.]?\\d+$");
+        Pattern pricePat = Pattern.compile("\\d+$|\\d+.\\d+$");
         Matcher priceMat = pricePat.matcher(input);
         priceMat.find();
         return Double.parseDouble(priceMat.group(0));

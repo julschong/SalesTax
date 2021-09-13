@@ -1,8 +1,8 @@
 package utils;
 
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Objects;
+import java.io.InputStream;
 import java.util.Scanner;
 
 public class TaxExemption {
@@ -25,13 +25,16 @@ public class TaxExemption {
     }
 
     private void loadExemptions() throws IOException {
-        String fileName = "taxExemptions.txt";
-        ClassLoader classLoader = TaxExemption.class.getClassLoader();
+        String fileName = "/taxExemptions.txt";
 
-        File file = new File(Objects.requireNonNull(classLoader.getResource(fileName)).getFile());
+        InputStream inputStream = getClass().getResourceAsStream(fileName);
+
+        if (inputStream == null) {
+            throw new FileNotFoundException("Cannot find file:" + fileName);
+        }
 
         //Read File Content
-        Scanner scanner = new Scanner(file);
+        Scanner scanner = new Scanner(inputStream);
         StringBuilder stringBuilder = new StringBuilder();
 
         while (scanner.hasNext()) {
