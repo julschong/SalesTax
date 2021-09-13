@@ -10,7 +10,7 @@ The project's dependencies are managed by Maven using pom.xml in root directory.
 
 To run the program in development in IDE, Open the root directory using IDE and locate ```./src/main/java/Main.java``` and run the main method.
 
-To run executable in the terminal from out directory, cd into ```./out/artifacts/SalesTaxCalculator/SalesTaxCalculator.jar``` in the terminal and run:
+To run executable in the terminal from out directory, locate ```./out/artifacts/SalesTaxCalculator/SalesTaxCalculator.jar``` in the terminal and run:
 
 ```java -jar SalesTaxCalculator.jar```
 
