@@ -24,11 +24,11 @@ public class SalesTaxCalculator {
 
     public void start() {
         printMenu();
-        while (!appState.equals(APP_STATE.EXIT)) {
+        while (appState != APP_STATE.EXIT) {
             String input = getUserInput();
             inputActions(input);
 
-            if (appState.equals(APP_STATE.STARTED)) {
+            if (appState == APP_STATE.STARTED) {
                 addItemToOrder(input);
             }
         }
