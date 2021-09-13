@@ -30,7 +30,9 @@ User input has 2 kinds:
   - view: view current order items
 2. Add Item
   - Format: {Quantity} {Item Name} at {Unit Price}
-  - when this format is detected, the program will add it into current order
+    - Example1: 1 book at 12
+    - Example2: 4 imported box of chocolate at 24.12     <-- this will be added 4 PCS of chocolate @24.12/PC to the order
+  - When this format is detected, the program will add it into current order
 
 ## Class Diagram
 <img src="https://github.com/julschong/SalesTaxCalculator/blob/master/Sales%20Tax%20Calculator.png" alt="class diagram"/>
