@@ -87,7 +87,8 @@ public class SalesTaxCalculator {
                     , item.getQuantity(), item.getItemName(), currentOrder.getSubTotal());
 
         } catch (IllegalStateException e) {
-            System.out.println("Invalid input format\nFormat must be: {Quantity} {Item Name} at {Unit Price}");
+            System.out.println("Invalid input format\nFormat must be: " +
+                    "{Quantity} {Item Name} at {Unit Price}\nExample: 1 book at 12.00");
         }
     }
 
@@ -110,5 +111,7 @@ public class SalesTaxCalculator {
         System.out.printf("\t%-13s%-2s%s%n", INPUT_RESTART, ":", "Clear the order");
         System.out.printf("\t%-13s%-2s%s%n", INPUT_VIEW, ":", "View current order");
         System.out.printf("*** %-13s%-2s%s ***%n", "Item Format", ":", "{Quantity} {Item Name} at {Unit Price}");
+        System.out.printf("\t%-13s%-2s%s%n", "Example", ":", "1 book at 12.00");
+
     }
 }
