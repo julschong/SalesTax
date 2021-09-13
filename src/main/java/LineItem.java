@@ -13,7 +13,7 @@ public class LineItem {
         this.itemName = itemName;
         this.unitPrice = unitPrice;
 
-        if (itemName.contains("imported")) {
+        if (itemName.toLowerCase().contains("imported")) {
             this.salesTaxRateInPercent += 5;
         }
 
