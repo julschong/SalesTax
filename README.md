@@ -30,8 +30,8 @@ User input has 2 kinds:
   - view: view current order items
 2. Add Item
   - Format: {Quantity} {Item Name} at {Unit Price}
-    - Example1: 1 book at 12                             <-- add 1 book at 12/pc to the order
-    - Example2: 4 imported box of chocolate at 24.12     <-- add 4 boxes of chocolate at 24.12/box to the order
+    - Example1: 1 book at 12
+    - Example2: 4 imported box of chocolate at 24.12
   - When this format is detected, the program will add it into current order
 
 ## Class Diagram
