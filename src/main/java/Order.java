@@ -45,8 +45,26 @@ public class Order {
         return subTotal;
     }
 
+    // remove item based on item name
+    public boolean removeItem(String itemName) {
+        for (int i = 0; i < cart.size(); i++) {
+            if (cart.get(i).getItemName().contains(itemName)) {
 
-    private static void main(String[] args) {
+                LineItem lineItemToBeRemove = cart.get(i);
+
+                totalSalesTax -= lineItemToBeRemove.getSalesTax();
+                total -= lineItemToBeRemove.getQuantity() * lineItemToBeRemove.getUnitPrice() + lineItemToBeRemove.getSalesTax();
+                subTotal -= lineItemToBeRemove.getQuantity() * lineItemToBeRemove.getUnitPrice();
+
+                cart.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public static void main(String[] args) {
         Order cart = new Order();
         LineItem item1 = new LineItem(1, "book", 12.49);
         LineItem item2 = new LineItem(1, "music CD", 14.99);
@@ -55,6 +73,9 @@ public class Order {
         cart.addItem(item1);
         cart.addItem(item2);
         cart.addItem(item3);
+
+        cart.removeItem("music");
         cart.printReceipt();
+
     }
 }

@@ -21,7 +21,6 @@ public class SalesTaxCalculator {
         currentOrder = new Order();
     }
 
-
     public void start() {
         printMenu();
         while (appState != APP_STATE.EXIT) {
